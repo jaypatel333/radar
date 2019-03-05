@@ -3,7 +3,7 @@ import pandas as pd
 from bs4 import BeautifulSoup
 import re
 
-driver = webdriver.Chrome(executable_path='/Users/chrishackett/Downloads/chromedriver')
+driver = webdriver.Chrome(executable_path='https://github.com/jaypatel333/radar/blob/master/chromedriver')
 
 driver.get('https://trends.google.com/trends/trendingsearches/daily?geo=US')
 
