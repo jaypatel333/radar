@@ -7,8 +7,6 @@ driver = webdriver.Chrome(executable_path='https://github.com/jaypatel333/radar/
 
 driver.get('https://trends.google.com/trends/trendingsearches/daily?geo=US')
 
-print("when you have scrolled down enough - press enter to continue...")
-
 #grabs raw html
 html = driver.page_source
 soup = BeautifulSoup(html, 'html.parser')
