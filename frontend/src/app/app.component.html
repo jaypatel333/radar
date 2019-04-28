@@ -1,0 +1,101 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title}}!
+  </h1>
+</div>
+
+<div class="main-container">
+        <header class="header-6">
+                <div class="branding">
+                    <a href="" class="nav-link">
+                        <clr-icon shape="home"></clr-icon>
+                        <span class="title">Topic Radar</span>
+                    </a>
+                </div>
+
+                <div class="branding">
+                        <a href="" class="nav-link">
+                            <clr-icon shape="compass"></clr-icon>
+                            <span class="title">{{countryName}}</span>
+                        </a>
+                    </div>
+
+                <div class="header-actions">
+                    <clr-dropdown> 
+                        <button class="nav-icon" clrDropdownTrigger > 
+                            
+                            <clr-icon shape="world"></clr-icon>
+                            <clr-icon shape="caret down"></clr-icon>
+                        </button>
+                        <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
+                            <button class="btn btn-outline" (click)="setLocation('2')" routerLink="" routerLinkActive="active">Country 2 </button>
+                            <a href="..." clrDropdownItem>Preferences</a>
+                            <a href="..." clrDropdownItem>Log out</a>
+                        </clr-dropdown-menu>
+                    </clr-dropdown>
+                </div>
+            </header>
+
+
+        
+        <div class="content-container">
+            <div class="content-area">
+                <router-outlet></router-outlet>
+            </div>
+            <clr-vertical-nav>
+                <a clrVerticalNavLink routerLink="1" routerLinkActive="active">{{topics[0]?.title}}</a>
+                <div class="nav-divider"></div>
+                <a clrVerticalNavLink routerLink="2" routerLinkActive="active">{{topics[1]?.title}}</a>
+                <div class="nav-divider"></div>
+                <a clrVerticalNavLink routerLink="3" routerLinkActive="active">{{topics[2]?.title}}</a>
+                <div class="nav-divider"></div>
+                <a clrVerticalNavLink routerLink="4" routerLinkActive="active">{{topics[3]?.title}}</a>
+                <div class="nav-divider"></div>
+                <a clrVerticalNavLink routerLink="5" routerLinkActive="active">{{topics[4]?.title}}</a>
+                <div class="nav-divider"></div>
+                <a clrVerticalNavLink routerLink="6" routerLinkActive="active">{{topics[5]?.title}}</a>
+                <div class="nav-divider"></div>
+                <a clrVerticalNavLink routerLink="7" routerLinkActive="active">{{topics[6]?.title}}</a>
+                <div class="nav-divider"></div>
+                <a clrVerticalNavLink routerLink="8" routerLinkActive="active">{{topics[7]?.title}}</a>
+                <div class="nav-divider"></div>
+                <a clrVerticalNavLink routerLink="9" routerLinkActive="active">{{topics[8]?.title}}</a>
+                <div class="nav-divider"></div>
+                <a clrVerticalNavLink routerLink="10" routerLinkActive="active">{{topics[9]?.title}}</a>
+                <div class="nav-divider"></div>
+            </clr-vertical-nav>
+        </div>
+    </div>
+
+
+
+
+
+
+<!--
+  <button class="btn btn-outline" (click)="getArticles(topic.title)" routerLink="{{i}}" >{{ topic.title }}</button>
+
+    <router-outlet></router-outlet>
+<p>Topics:</p>
+<ul>
+  <li *ngFor="let topic of topics">
+    {{ topic.body }}
+  </li>
+</ul>
+
+
+<div class="content-container" *ngFor="let topic of topics; index as i;">
+  <clr-vertical-nav>
+      <button class="btn btn-outline" (click)="getArticles(topic.title)" routerLink="one.component" >{{ topic.title }}</button>
+  </clr-vertical-nav>
+</div>
+
+<button (click)="loadMyChildComponent1();">Load111111111111</button>
+<app-one *ngIf="loadComponent1"></app-one>
+-->
+<div class="content-container" *ngFor="let topic of topics; index as i;">
+    <clr-vertical-nav>
+        <button class="btn btn-outline" (click)="getArticles(topic.title)" routerLink="one.component" >{{ topic.title }}</button>
+    </clr-vertical-nav>
+  </div>
