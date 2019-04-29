@@ -11,12 +11,15 @@ import { map, filter, scan, reduce } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class DataService {
-  ROOT_URL = 'https://jsonplaceholder.typicode.com/photos/?id=1&id=2&id=3&id=4&id=5&id=6&id=7&id=8&id=9&id=10';
-  ROOT_URL2 = 'https://jsonplaceholder.typicode.com/photos/?albumId=';
+  // ROOT_URL = 'https://jsonplaceholder.typicode.com/photos/?id=1&id=2&id=3&id=4&id=5&id=6&id=7&id=8&id=9&id=10';
+  ROOT_URL2 = 'http://127.0.0.1:5000/regions/';
+  ROOT_URL = 'http://127.0.0.1:5000/';
 
-  currentCountry = '1';
+  currentCountry = 'US';
+  isDefault = true;
 
-  topic: Observable<Topic[]>;
+  myData: Observable<Data>;
+
   constructor(public http: HttpClient) {
     console.log('Data service connected...');
 
@@ -24,8 +27,9 @@ export class DataService {
 
   getPosts() {
     // this.currentCountry = this.getCountryCode('create new method');
-    console.log(this.ROOT_URL2, this.currentCountry) ;
-    return this.http.get<Topic[]>(this.ROOT_URL2 + this.currentCountry); // ;
+    console.log(this.ROOT_URL, this.currentCountry);
+    this.ROOT_URL2 = this.getCountryCode(this.ROOT_URL);
+    return this.http.get<Data>(this.ROOT_URL); // ;
     // .map(res => res.json());
     // .subscribe(data => data) ;
     //  .pipe(map((response: any) => response));
@@ -33,11 +37,11 @@ export class DataService {
     // .pipe(map((response: any) => response.json()));
   }
 
-  getCountryCode(name) {
+  getCountryCode(url) {
+    if (this.isDefault === true) {
+      return url;
+    } else { return url + 'region/' + this.currentCountry ;  } }
 
-    return 'US';
-
-  }
 
   setLocation(name: string) {
     this.currentCountry = name;
@@ -46,9 +50,25 @@ export class DataService {
 
 }
 
-interface Topic {
-  id: number;
-  title: string;
-  body: string;
-  userId: number;
+interface Data {
+  _id: string;
+  date_added: string;
+  location_tag: string;
+  trends: Trend[];
+}
+
+interface Trend {
+  trend_id: string;
+  trend_name: string;
+  articles: Article[];
+
+}
+
+interface Article {
+  article_URL: string;
+  article_id: string;
+  article_post_date: string;
+  article_thumbnail: string;
+  atrticle_title: string;
+
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
+import { toPublicName } from '@angular/compiler/src/i18n/serializers/xmb';
 
 @Component({
   selector: 'app-eight',
@@ -8,7 +9,8 @@ import { DataService } from '../../services/data.service';
 })
 export class EightComponent implements OnInit {
 
-  topics: Topic[];
+  topics: Data;
+  // temp: Trend[];
 
   constructor(private dataService: DataService) {
 
@@ -21,22 +23,40 @@ export class EightComponent implements OnInit {
       this.topics = topics; // .stringify(posts);
       this.topics = this.delData(this.topics);
 
-      console.log(this.topics);
+      console.log(  this.topics);
     });
   }
 
-  delData(abc: Topic[]) {
-    return abc.slice(0, 10);
+  delData(abc: Data) {
+    // this.temp = abc.trend.slice(7, 8);
+    abc.trends = abc.trends.slice(7, 8); // this.temp;
+    console.log ('888888888888888888888', abc) ;
+    return abc;
   }
 
 }
 
 
 
+interface Data {
+  _id: string;
+  date_added: string;
+  location_tag: string;
+  trends: Trend[];
+}
 
-interface Topic {
-  id: number;
-  title: string;
-  body: string;
-  userId: number;
+interface Trend {
+  trend_id: string;
+  trend_name: string;
+  articles: Article[];
+
+}
+
+interface Article {
+  article_URL: string;
+  article_id: string;
+  article_post_date: string;
+  article_thumbnail: string;
+  atrticle_title: string;
+
 }

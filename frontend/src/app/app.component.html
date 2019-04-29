@@ -44,25 +44,25 @@
                 <router-outlet></router-outlet>
             </div>
             <clr-vertical-nav>
-                <a clrVerticalNavLink routerLink="1" routerLinkActive="active">{{topics[0]?.title}}</a>
+                <a clrVerticalNavLink routerLink="1" routerLinkActive="active">{{topics?.trends[0].trend_name}}</a>
                 <div class="nav-divider"></div>
-                <a clrVerticalNavLink routerLink="2" routerLinkActive="active">{{topics[1]?.title}}</a>
+                <a clrVerticalNavLink routerLink="2" routerLinkActive="active">{{topics?.trends[1].trend_name}}</a>
                 <div class="nav-divider"></div>
-                <a clrVerticalNavLink routerLink="3" routerLinkActive="active">{{topics[2]?.title}}</a>
+                <a clrVerticalNavLink routerLink="3" routerLinkActive="active">{{topics?.trends[2].trend_name}}</a>
                 <div class="nav-divider"></div>
-                <a clrVerticalNavLink routerLink="4" routerLinkActive="active">{{topics[3]?.title}}</a>
+                <a clrVerticalNavLink routerLink="4" routerLinkActive="active">{{topics?.trends[3].trend_name}}</a>
                 <div class="nav-divider"></div>
-                <a clrVerticalNavLink routerLink="5" routerLinkActive="active">{{topics[4]?.title}}</a>
+                <a clrVerticalNavLink routerLink="5" routerLinkActive="active">{{topics?.trends[4].trend_name}}</a>
                 <div class="nav-divider"></div>
-                <a clrVerticalNavLink routerLink="6" routerLinkActive="active">{{topics[5]?.title}}</a>
+                <a clrVerticalNavLink routerLink="6" routerLinkActive="active">{{topics?.trends[5].trend_name}}</a>
                 <div class="nav-divider"></div>
-                <a clrVerticalNavLink routerLink="7" routerLinkActive="active">{{topics[6]?.title}}</a>
+                <a clrVerticalNavLink routerLink="7" routerLinkActive="active">{{topics?.trends[6].trend_name}}</a>
                 <div class="nav-divider"></div>
-                <a clrVerticalNavLink routerLink="8" routerLinkActive="active">{{topics[7]?.title}}</a>
+                <a clrVerticalNavLink routerLink="8" routerLinkActive="active">{{topics?.trends[7].trend_name}}</a>
                 <div class="nav-divider"></div>
-                <a clrVerticalNavLink routerLink="9" routerLinkActive="active">{{topics[8]?.title}}</a>
+                <a clrVerticalNavLink routerLink="9" routerLinkActive="active">{{topics?.trends[8].trend_name}}</a>
                 <div class="nav-divider"></div>
-                <a clrVerticalNavLink routerLink="10" routerLinkActive="active">{{topics[9]?.title}}</a>
+                <a clrVerticalNavLink routerLink="10" routerLinkActive="active">{{topics?.trends[9].trend_name}}</a>
                 <div class="nav-divider"></div>
             </clr-vertical-nav>
         </div>
@@ -94,8 +94,4 @@
 <button (click)="loadMyChildComponent1();">Load111111111111</button>
 <app-one *ngIf="loadComponent1"></app-one>
 -->
-<div class="content-container" *ngFor="let topic of topics; index as i;">
-    <clr-vertical-nav>
-        <button class="btn btn-outline" (click)="getArticles(topic.title)" routerLink="one.component" >{{ topic.title }}</button>
-    </clr-vertical-nav>
-  </div>
+

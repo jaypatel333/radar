@@ -8,7 +8,7 @@ import { DataService } from './services/data.service';
 })
 export class AppComponent implements OnInit {
   title = 'Topic Radar';
-  topics: Topic[] = [];
+  topics: Data = null ;
   loadComponent1 = false;
   countryName = 'USA';
 
@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
 
       this.topics = topics; // .stringify(posts);
 
-      console.log(this.topics);
+      console.log('qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq', this.topics);
     });
 
 
@@ -56,10 +56,25 @@ export class AppComponent implements OnInit {
 }
 
 
-interface Topic {
-  id: number;
-  title: string;
-  body: string;
-  userId: number;
+interface Data {
+  _id: string;
+  date_added: string;
+  location_tag: string;
+  trends: Trend[];
 }
 
+interface Trend {
+  trend_id: string;
+  trend_name: string;
+  articles: Article[];
+
+}
+
+interface Article {
+  article_URL: string;
+  article_id: string;
+  article_post_date: string;
+  article_thumbnail: string;
+  atrticle_title: string;
+
+}
